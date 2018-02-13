@@ -91,7 +91,7 @@ if ($data -ne $null) {
                         -Filter "ProxyAddresses -like '*SMTP:$str*'" `
                         -Properties DisplayName,ProxyAddresses `
                         | Select DisplayName,ProxyAddresses
-                } catch [TimeoutException] { }
+                } catch [System.TimeoutException] { }
                 if ($g) {
                     $ga = ""
                     foreach ($i in $g.ProxyAddresses) {

@@ -107,7 +107,9 @@ if ($data -ne $null) {
                         -Filter $ft `
                         -Properties $prop `
                         | Select $prop
-                } catch [ADException],[ADIdentityNotFoundException],[TimeoutException] { }
+                } catch [Microsoft.ActiveDirectory.Management.ADException]
+                        [Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException]
+                        [TimeoutException] { }
                 foreach ($i in $o) {
                     foreach ($j in ($i.PSObject.Properties | Where-Object {$propEx -contains $_.Name})) {
                         $tmp = $i | Select -expand $j.Name

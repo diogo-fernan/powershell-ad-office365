@@ -115,7 +115,9 @@ if ($data -ne $null) {
                         -Filter "SamAccountName -eq '$istr' -or UserPrincipalName -eq '$istr' -or ProxyAddresses -like '*$istr*'" `
                         -Properties $prop `
                         | Select $prop
-                } catch [ADException],[ADIdentityNotFoundException],[TimeoutException] { }
+                } catch [Microsoft.ActiveDirectory.Management.ADException],
+                        [Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException],
+                        [System.TimeoutException] { }
                 foreach ($i in $o) {
                     foreach ($j in ($i.PSObject.Properties | Where-Object {$propEx -contains $_.Name})) {
                         $tmp = $i | Select -expand $j.Name
