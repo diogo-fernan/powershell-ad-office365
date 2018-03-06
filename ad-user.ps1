@@ -52,7 +52,7 @@ import-module activedirectory
 if ($Input) { $data = [string]$Input }
 else {
     if (Test-Path $ifile) { $data = [string](Get-Content $ifile) }
-    else { throw [System.IO.FileNotFoundException] "$ifile not found." }
+    else { throw [System.IO.FileNotFoundException] "$ifile not found" }
 }
 
 if ($data -ne $null) {
