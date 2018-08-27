@@ -112,7 +112,7 @@ if ($data -ne $null) {
                 try {
                     $o = Get-ADUser `
                         -Server $iserver `
-                        -Filter "SamAccountName -eq '$istr' -or UserPrincipalName -eq '$istr' -or ProxyAddresses -like '*$istr*'" `
+                        -Filter "SamAccountName -eq '$istr' -or EmailAddress -eq '$istr' -or UserPrincipalName -eq '$istr' -or ProxyAddresses -like '*$istr*'" `
                         -Properties $prop `
                         | Select $prop
                 } catch [Microsoft.ActiveDirectory.Management.ADException],
