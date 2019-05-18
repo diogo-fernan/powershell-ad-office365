@@ -24,3 +24,7 @@ These PowerShell programs were developed with the same approach, accepting input
 ```
 PS C:\> [(Get-Content ifile | echo "data") |] ad-*.ps1 [-InFile ifile] [-OutFile ofile]
 ```
+
+# Author
+
+[@dfernan__](https://twitter.com/dfernan__)
